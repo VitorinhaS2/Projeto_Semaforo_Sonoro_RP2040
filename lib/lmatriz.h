@@ -9,6 +9,6 @@
 uint32_t rgb_matrix(double b, double r, double g);
 void clear_leds(PIO pio, uint sm);
 void leds_on(PIO pio, uint sm, double r, double g, double b);
-void print_num(int caracter, PIO pio, uint sm);
+void print_num(int caracter, PIO pio, uint sm, uint32_t cor);
 
 #endif // LED_MATRIZ_H

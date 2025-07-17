@@ -21,36 +21,17 @@ void leds_on(PIO pio, uint sm, double r, double g, double b) {
     }
 }
 
-void print_num(int caracter, PIO pio, uint sm){
+void print_num(int caracter, PIO pio, uint sm, uint32_t cor){
     switch (caracter){
-        case 0:
-            num0(pio, sm);
-            break;
-        case 1:
-            num1(pio, sm);
-            break;
-        case 2:
-            num2(pio, sm);
-            break;
-        case 3:
-            num3(pio, sm);
-            break;
-        case 4:
-            num4(pio, sm);
-            break;
-        case 5:
-            num5(pio, sm);
-            break;
-        case 6:
-            num6(pio, sm);
-            break;
-        case 7:
-            num7(pio, sm);
-            break;
-        case 8:
-            num8(pio, sm);
-            break;
-        case 9:
-            num9(pio, sm);
+        case 0: num0(pio, sm, cor); break;
+        case 1: num1(pio, sm, cor); break;
+        case 2: num2(pio, sm, cor); break;
+        case 3: num3(pio, sm, cor); break;
+        case 4: num4(pio, sm, cor); break;
+        case 5: num5(pio, sm, cor); break;
+        case 6: num6(pio, sm, cor); break;
+        case 7: num7(pio, sm, cor); break;
+        case 8: num8(pio, sm, cor); break;
+        case 9: num9(pio, sm, cor); break;
     }
 }
