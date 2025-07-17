@@ -146,6 +146,9 @@ bool semaforo(struct repeating_timer *t) {
             gpio_put(LED_VERDE, 1);
             gpio_put(LED_AZUL, 0);
 
+            // Som contínuo de 500 Hz
+            set_pwm_pin(BUZZER, 500, 300);
+
             // Atualiza o display
             if (travessia_solicitada) {
               ssd1306_fill(&display, false);
