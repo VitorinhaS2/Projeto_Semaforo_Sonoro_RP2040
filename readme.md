@@ -10,7 +10,10 @@ Este projeto tem como objetivo desenvolver um **semáforo sonoro acessível**, u
 - **LEDs RGB** (vermelho, amarelo, verde)
 - **Buzzer** (emissão de som via PWM)
 - **Matriz de LEDs 5x5** (para contagem regressiva visual)
-- *(em expansão)* Display OLED e botão de solicitação
+- **Display OLED** (mensagens de instrução)  
+- **Botão** de solicitação de travessia  
+- **PIO** para controle da matriz  
+- **Comunicação I2C** para o display OLED
 
 ---
 
@@ -19,17 +22,21 @@ Este projeto tem como objetivo desenvolver um **semáforo sonoro acessível**, u
 - Simulação de um **semáforo com três estados** (vermelho, amarelo e verde).
 - **Contagem regressiva visual** na matriz de LEDs a cada segundo.
 - **Alertas sonoros** específicos para cada estado:
-  - Vermelho: bips curtos a cada 1 segundo
-  - Amarelo: bips com frequência crescente
-  - Verde: som contínuo indicando travessia segura
-- Código estruturado com controle por **máquina de estados** e temporização.
+  - Vermelho: bips curtos de 500 Hz a cada segundo
+  - Amarelo: bips com frequência crescente (500 Hz até 1000 Hz)
+  - Verde: som contínuo de 500 Hz durante a travessia
+- **Botão de solicitação** com sistema de debounce
+- **Display OLED** com mensagens de voz simuladas em cada etapa:
+  - Confirmação de solicitação
+  - Alerta de atenção
+  - Liberação de travessia
 
 ---
 
 ## Desenvolvido por
 
-- **Vitória Freire Cavalcanti** — Líder do repositório, responsável pela **integração de código** e **revisão dos pull requests**
-- **Láisa Bianca Nunes de Souza** — Responsável pela **estrutura do display** e implementação do **botão de solicitação**
+- **Vitória Freire Cavalcanti** — Líder do repositório. Responsável pela **integração do código**, revisão dos **pull requests**, lógica de controle dos **LEDs** e da **matriz de LEDs**.
+- **Láisa Bianca Nunes de Souza** — Responsável pela **estrutura do display** e pelo **botão de solicitação com interrupção e debounce**.
 - **Laíse Café Dos Santos** — Responsável pela **lógica do buzzer** e criação do **arquivo README**
 
 ---
