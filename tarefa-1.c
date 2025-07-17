@@ -128,11 +128,16 @@ bool semaforo(struct repeating_timer *t) {
             // Configura o contador regressivo na matriz de LEDs
             for(int i = 6; i > 0; i--){
                 print_num(i, pio, sm);
-                 int freq = 500 + (100 * (6 - i));
+            if (travessia_solicitada) {
+                int freq = 500 + (100 * (6 - i));
                 set_pwm_pin(BUZZER, freq, 300);
                 sleep_ms(200);           
                 disable_pwm(BUZZER);
-                sleep_ms(800); 
+    } else {
+            sleep_ms(200); // espera equivalente, sem buzzer
+            }
+           sleep_ms(800);
+
             }
             clear_leds(pio, sm);
             
@@ -146,8 +151,10 @@ bool semaforo(struct repeating_timer *t) {
             gpio_put(LED_VERDE, 1);
             gpio_put(LED_AZUL, 0);
 
-            // Som contínuo de 500 Hz
-            set_pwm_pin(BUZZER, 500, 300);
+            // Só ativa o buzzer se travessia foi solicitada
+            if (travessia_solicitada) {
+              set_pwm_pin(BUZZER, 500, 300);
+            }
 
             // Atualiza o display
             if (travessia_solicitada) {
