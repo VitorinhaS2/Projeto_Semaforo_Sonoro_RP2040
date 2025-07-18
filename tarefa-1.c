@@ -100,7 +100,7 @@ bool semaforo(struct repeating_timer *t) {
             
             // Configura o contador regressivo na matriz de LEDs
             for(int i = 9; i > 0; i--){
-                print_num(i, pio, sm, rgb_matrix(1.0, 0.0, 0.0));
+                print_num(i, pio, sm, rgb_matrix(0.2, 0.0, 0.0));
                 set_pwm_pin(BUZZER, 500, 300);
                 sleep_ms(200);            
                 disable_pwm(BUZZER);
@@ -127,7 +127,7 @@ bool semaforo(struct repeating_timer *t) {
             
             // Configura o contador regressivo na matriz de LEDs
             for(int i = 6; i > 0; i--){
-                print_num(i, pio, sm, rgb_matrix(1.0, 1.0, 0.0));
+                print_num(i, pio, sm, rgb_matrix(0.3, 0.2, 0.0));
             if (travessia_solicitada) {
                 int freq = 500 + (100 * (6 - i));
                 set_pwm_pin(BUZZER, freq, 300);
@@ -165,7 +165,7 @@ bool semaforo(struct repeating_timer *t) {
             }
             // Configura o contador regressivo
             for(int i = 6; i > 0; i--){
-                print_num(i, pio, sm, rgb_matrix(0.0, 1.0, 0.0));  // Verde
+                print_num(i, pio, sm, rgb_matrix(0.0, 0.2, 0.0));  // Verde
                 sleep_ms(1000);
             }
             disable_pwm(BUZZER);
